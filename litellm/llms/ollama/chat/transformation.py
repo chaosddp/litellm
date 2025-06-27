@@ -296,6 +296,8 @@ class OllamaChatConfig(BaseConfig):
                 cast(dict, m)["tool_calls"] = new_tools
             new_messages.append(m)
 
+        think = optional_params.pop("think", None)
+
         data = {
             "model": model,
             "messages": new_messages,
@@ -308,6 +310,8 @@ class OllamaChatConfig(BaseConfig):
             data["tools"] = tools
         if keep_alive is not None:
             data["keep_alive"] = keep_alive
+        if think is not False:
+            data["think"] = think
 
         return data
 
