@@ -310,7 +310,7 @@ class OllamaChatConfig(BaseConfig):
             data["tools"] = tools
         if keep_alive is not None:
             data["keep_alive"] = keep_alive
-        if think is not False:
+        if think is not None:
             data["think"] = think
 
         return data
